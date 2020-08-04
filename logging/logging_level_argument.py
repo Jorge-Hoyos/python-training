@@ -12,7 +12,10 @@ numeric_level = getattr(logging, loglevel.upper(), None)
 if not isinstance(numeric_level, int):
   raise ValueError('Invalid log level: %s' % loglevel)
 logging.basicConfig(level=numeric_level)
+logger = logging.getLogger()
 
-logging.debug('This message should appear on the console')
-logging.info('So should this')
-logging.warning('And this, too')
+logger.debug('The level of the logging is %s' % logger.getEffectiveLevel())
+logger.info('The level of the logging is %s' % logger.getEffectiveLevel())
+logger.warning('The level of the logging is %s' % logger.getEffectiveLevel())
+logger.error('The level of the logging is %s' % logger.getEffectiveLevel())
+logger.critical('The level of the logging is %s' % logger.getEffectiveLevel())
